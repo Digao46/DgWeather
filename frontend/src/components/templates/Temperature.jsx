@@ -5,9 +5,6 @@ const Temperature = (props) => {
 
     let res = props.data.weatherData;
 
-    // let icon = res.data.weather[0].icon
-    // let iconUrl = `http://openweathermap.org/img/w/${icon}.png`
-
     const windDirection = (deg) => {
         if (deg >= 22 && deg <= 67) {
             // 45deg = Nordeste => NE
@@ -131,7 +128,7 @@ const Temperature = (props) => {
                     <div className="data card d-flex justify-content-center align-items-center mb-3">
 
                         <div className="currentTemp d-flex justify-content-center align-items-center col-12">
-                            <div className="d-flex justify-content-start justify-content-md-center col-4 col-md-6">
+                            <div className="d-flex justify-content-start justify-content-md-center col-5 col-md-6">
                                 <img src={`http://openweathermap.org/img/w/${res.data.weather[0].icon}.png`} alt="Logo" className="icon" />
                             </div>
                             <p className="col-6">{(res.data.main.temp).toFixed(0)}°C</p>

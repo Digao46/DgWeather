@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -9,10 +9,20 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 
+
+
 function App() {
   const [location, setLocation] = useState(false);
   const [city, setCity] = useState(false);
   const [data, setData] = useState(false);
+
+  const [
+    coordinates = {
+      lng: 0,
+      lat: 0,
+    },
+    setCoordinates,
+  ] = useState();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -39,14 +49,18 @@ function App() {
             units: "metric",
           },
         })
-        .then((res) => setData({ data: res.data }))
+        .then((res) => {
+          setData({ data: res.data });
+          setCoordinates({ lat: res.data.coord.lat, lon: res.data.coord.lon });
+        })
         .catch((err) => {
           if ((err = 404)) {
             toast.error("Cidade não encontrada!");
           } else {
-            toast.error("Ocorreu um erro")
+            toast.error("Ocorreu um erro");
+            console.log(err);
           }
-        });;
+        });
     } else {
       await axios
         .get("http://api.openweathermap.org/data/2.5/weather", {
@@ -57,13 +71,16 @@ function App() {
             units: "metric",
           },
         })
-        .then((res) => setData({ data: res.data }))
-        .then(console.log(data))
+        .then((res) => {
+          setData({ data: res.data });
+          setCoordinates({ lat: res.data.coord.lat, lon: res.data.coord.lon });
+        })
         .catch((err) => {
           if ((err = 404)) {
             toast.error("Cidade não encontrada!");
           } else {
-            toast.error("Ocorreu um erro")
+            toast.error("Ocorreu um erro");
+            console.log(err);
           }
         });
     }
@@ -72,7 +89,7 @@ function App() {
   return (
     <div className="App">
       <Header appSet={setQ} appGet={setWeather} />
-      <Main weatherData={data} locationProps={location} />
+      <Main mapData={coordinates} weatherData={data} locationProps={location} />
 
       <ToastContainer autoClose={3000} />
     </div>
