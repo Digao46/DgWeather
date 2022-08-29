@@ -15,8 +15,8 @@ const Map = (props) => {
                         <p className="m-0 me-1">
                             Latitude: {props.data.mapData.lat}
                         </p>
-                        <hr className="horizontalLineDivision d-md-none"/>
-                        <span className="m-0 d-none d-md-block">
+                        <hr className="horizontalLineDivision d-lg-none"/>
+                        <span className="m-0 d-none d-lg-block">
                             |
                         </span>
                         <p className="m-0 ms-1">
