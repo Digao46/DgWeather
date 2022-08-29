@@ -40,7 +40,7 @@ function App() {
   const setWeather = async (lat, lon) => {
     if (!city.q) {
       await axios
-        .get("http://api.openweathermap.org/data/2.5/weather", {
+        .get("https://api.openweathermap.org/data/2.5/weather", {
           params: {
             lat: lat,
             lon: lon,
@@ -63,7 +63,7 @@ function App() {
         });
     } else {
       await axios
-        .get("http://api.openweathermap.org/data/2.5/weather", {
+        .get("https://api.openweathermap.org/data/2.5/weather", {
           params: {
             q: city.q,
             appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
