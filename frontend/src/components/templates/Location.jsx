@@ -1,5 +1,5 @@
 import React from "react";
-import "./Location.css"
+import "./Location.scss"
 
 const Map = (props) => {
 

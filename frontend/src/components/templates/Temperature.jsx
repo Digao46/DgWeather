@@ -1,5 +1,5 @@
 import React from "react";
-import "./Temperature.css"
+import "./Temperature.scss"
 
 const Temperature = (props) => {
 
@@ -48,12 +48,12 @@ const Temperature = (props) => {
 
             <div className="temp">
 
-                <div className="data card mb-3">
+                <div className="card mb-3">
                     <p className="align-self-start m-0"></p>
                     <p className="align-self-end"></p>
                 </div>
 
-                <div className="data card d-flex justify-content-center align-items-center mb-3">
+                <div className="card d-flex justify-content-center align-items-center mb-3">
 
                     <div className="currentTemp d-flex justify-content-center align-items-center col-12">
                         <p>°C</p>
@@ -88,7 +88,7 @@ const Temperature = (props) => {
 
                 </div>
 
-                <div className="data card d-flex justify-content-center align-items-center">
+                <div className="card d-flex justify-content-center align-items-center">
                     <div>
                         <div className="labels col-12 d-flex justify-content-around mt-3">
                             <p className="text-center">
@@ -99,11 +99,10 @@ const Temperature = (props) => {
                             </p>
                         </div>
 
-                        <div className="otherTemps d-flex justify-content-center col-12">
+                        <div className="windData d-flex justify-content-center col-12">
                             <p className="col-4 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" /></p>
-                            <div className="divisionLine"></div>
                             <p className="col-4 ms-4">
-                                <span className="measurement p-0"> km/h</span> </p>
+                                <span className="velocity p-0"> km/h</span> </p>
                         </div>
                     </div>
 
@@ -120,16 +119,16 @@ const Temperature = (props) => {
 
                 <div className="temp">
 
-                    <div className="data card mb-3">
+                    <div className="card mb-3">
                         <p className="align-self-start m-0"> {`${res.data.name}, ${res.data.sys.country}`} </p>
                         <p className="align-self-end">{(res.data.weather[0].description).toUpperCase()}</p>
                     </div>
 
-                    <div className="data card d-flex justify-content-center align-items-center mb-3">
+                    <div className="card d-flex justify-content-center align-items-center mb-3">
 
                         <div className="currentTemp d-flex justify-content-center align-items-center col-12">
                             <div className="d-flex justify-content-start justify-content-md-end col-5 col-md-6">
-                                <img src={`https://openweathermap.org/img/w/${res.data.weather[0].icon}.png`} alt="Logo" className="icon" />
+                                <img className="icon" src={`https://openweathermap.org/img/w/${res.data.weather[0].icon}.png`} alt="Logo" />
                             </div>
                             <p className="col-6">{(res.data.main.temp).toFixed(0)}°C</p>
                         </div>
@@ -163,7 +162,7 @@ const Temperature = (props) => {
 
                     </div>
 
-                    <div className="data card d-flex justify-content-center align-items-center">
+                    <div className="card d-flex justify-content-center align-items-center">
                         <div>
                             <div className="labels col-12 d-flex justify-content-around mt-3">
                                 <p className="text-center">
@@ -174,11 +173,10 @@ const Temperature = (props) => {
                                 </p>
                             </div>
 
-                            <div className="otherTemps d-flex justify-content-center col-12">
+                            <div className="windData d-flex justify-content-center col-12">
                                 <p className="col-5 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" />{windDirection(res.data.wind.deg)}</p>
-                                {/* <div className="divisionLine"></div> */}
                                 <p className="col-5 ms-4">{res.data.wind.speed}
-                                    <span className="measurement p-0"> km/h</span> </p>
+                                    <span className="velocity p-0"> km/h</span> </p>
                             </div>
                         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -8,8 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
-
-
 
 function App() {
   const [location, setLocation] = useState(false);
@@ -25,10 +23,15 @@ function App() {
   ] = useState();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setWeather(position.coords.latitude, position.coords.longitude);
-      setLocation(true);
-    });
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        setWeather(position.coords.latitude, position.coords.longitude);
+        setLocation(true);
+      },
+      function (err) {
+        console.log(err)
+      }
+    );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

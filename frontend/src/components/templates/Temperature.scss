@@ -1,0 +1,90 @@
+@keyframes rotating {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  .loading {
+    width: 80px;
+    height: 80px;
+
+    margin: 10px 0;
+
+    border-radius: 50%;
+    border: 6px solid rgb(243, 243, 243);
+    border-top-color: #0080cd;
+
+    animation: rotating 1s linear infinite;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.card {
+  background-color: rgba(128, 128, 128, 0.137) !important;
+
+  p {
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+
+  hr {
+    margin: 0 !important;
+    color: black;
+    height: 4px;
+    width: 80%;
+  }
+
+  .currentTemp {
+    height: 120px;
+
+    img {
+      height: 120px;
+    }
+
+    p {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .labels {
+    p {
+      width: 100px;
+      font-size: 0.95rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .otherTemps {
+    .divisionLine {
+      background-color: black;
+      height: 40px;
+      width: 2px;
+    }
+  }
+
+  .feelsLikeTemp {
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .feelsLike {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+  }
+
+  .windData {
+    .velocity {
+      font-size: 0.8rem;
+    }
+  }
+}
