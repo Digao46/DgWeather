@@ -5,7 +5,8 @@ import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 
 // Requisição
-import { getByCoord, getByName } from "./config/http";
+// import { getByCoord, getByName } from "./config/http";
+import { getWeather } from "./service/weather.service";
 
 // Toast
 import { ToastContainer, toast } from "react-toastify";
@@ -13,7 +14,25 @@ import { ToastContainer, toast } from "react-toastify";
 function App() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      setWeather(position.coords.latitude, position.coords.longitude);
+      getWeather({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      })
+        .then((res) => {
+          setData({ data: res.data });
+          setCoordinates({ lat: res.data.coord.lat, lon: res.data.coord.lon });
+        })
+        .catch((err) => {
+          // eslint-disable-next-line no-cond-assign
+          if ((err = 404)) {
+            toast.error(
+              "Não foi possível encontrar a cidade baseada nas sua coordenadas!"
+            );
+          } else {
+            toast.error("Ocorreu um erro");
+          }
+        });
+
       setLocation(true);
     });
 
@@ -21,29 +40,13 @@ function App() {
   }, []);
 
   const [location, setLocation] = useState(false);
-  const [city, setCity] = useState(false);
   const [data, setData] = useState(false);
 
   const [coordinates = { lng: 0, lat: 0 }, setCoordinates] = useState();
 
-  const setQ = (inputData) => {
-    setCity({ q: inputData });
-  };
-
-  const setWeather = (lat, lon) => {
-    const url = "https://api.openweathermap.org/data/2.5/weather";
-    const appId = process.env.REACT_APP_OPEN_WEATHER_KEY;
-
-    if (!city.q) {
-      getByCoord(url, lat, lon, appId, [setData, setCoordinates], toast);
-    } else {
-      getByName(url, city.q, appId, [setData, setCoordinates], toast);
-    }
-  };
-
   return (
     <div className="App">
-      <Header appSet={setQ} appGet={setWeather} />
+      <Header methods={[getWeather, setData, setCoordinates]} toast={toast} />
       <Main mapData={coordinates} weatherData={data} locationProps={location} />
 
       <ToastContainer autoClose={3000} />

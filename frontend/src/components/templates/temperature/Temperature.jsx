@@ -3,8 +3,6 @@ import "./Temperature.scss"
 
 const Temperature = (props) => {
 
-    let res = props.data.weatherData;
-
     const windDirection = (deg) => {
         if (deg >= 22 && deg <= 67) {
             // 45deg = Nordeste => NE
@@ -34,7 +32,7 @@ const Temperature = (props) => {
         }
     }
 
-    if (!props.data.locationProps) {
+    if (!props.locationProps) {
         return (
             <section className="loader d-flex flex-column align-items-center justify-content-center mb-5 mt-5">
                 <div className="m-5 loading"></div>
@@ -42,7 +40,7 @@ const Temperature = (props) => {
                 <p className="loadingText text-center col-12">Necessário Acesso á sua Localização!</p>
             </section>
         )
-    } else if (!res) {
+    } else if (!props.data) {
         return (
             <section className="col-10 col-md-6 col-lg-4 mb-5 mt-5">
 
@@ -120,17 +118,17 @@ const Temperature = (props) => {
                 <div className="temp">
 
                     <div className="card mb-3">
-                        <p className="align-self-start m-0"> {`${res.data.name}, ${res.data.sys.country}`} </p>
-                        <p className="align-self-end">{(res.data.weather[0].description).toUpperCase()}</p>
+                        <p className="align-self-start m-0"> {`${props.data.name}, ${props.data.sys.country}`} </p>
+                        <p className="align-self-end">{(props.data.weather[0].description).toUpperCase()}</p>
                     </div>
 
                     <div className="card d-flex justify-content-center align-items-center mb-3">
 
                         <div className="currentTemp d-flex justify-content-center align-items-center col-12">
                             <div className="d-flex justify-content-start justify-content-md-end col-5 col-md-6">
-                                <img className="icon" src={`https://openweathermap.org/img/w/${res.data.weather[0].icon}.png`} alt="Logo" />
+                                <img className="icon" src={`https://openweathermap.org/img/w/${props.data.weather[0].icon}.png`} alt="Logo" />
                             </div>
-                            <p className="col-6">{(res.data.main.temp).toFixed(0)}°C</p>
+                            <p className="col-6">{(props.data.main.temp).toFixed(0)}°C</p>
                         </div>
 
                         <hr className="horizontalLineDivision" />
@@ -146,9 +144,9 @@ const Temperature = (props) => {
                             </div>
 
                             <div className="otherTemps d-flex justify-content-center col-12">
-                                <p className="me-3">{(res.data.main.temp_min).toFixed(0)}°C</p>
+                                <p className="me-3">{(props.data.main.temp_min).toFixed(0)}°C</p>
                                 <div className="divisionLine"></div>
-                                <p className="ms-3">{(res.data.main.temp_max).toFixed(0)}°C</p>
+                                <p className="ms-3">{(props.data.main.temp_max).toFixed(0)}°C</p>
                             </div>
                         </div>
 
@@ -157,7 +155,7 @@ const Temperature = (props) => {
                         <div className="feelsLikeTemp d-flex flex-column justify-content-center align-items-center col-12">
                             <p className="col-12 text-center">Sensação Térmica: </p>
 
-                            <p className=" feelsLike col-12 text-center mb-3">{(res.data.main.feels_like).toFixed(0)}°C</p>
+                            <p className=" feelsLike col-12 text-center mb-3">{(props.data.main.feels_like).toFixed(0)}°C</p>
                         </div>
 
                     </div>
@@ -174,8 +172,8 @@ const Temperature = (props) => {
                             </div>
 
                             <div className="windData d-flex justify-content-center col-12">
-                                <p className="col-5 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" />{windDirection(res.data.wind.deg)}</p>
-                                <p className="col-5 ms-4">{res.data.wind.speed}
+                                <p className="col-5 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" />{windDirection(props.data.wind.deg)}</p>
+                                <p className="col-5 ms-4">{props.data.wind.speed}
                                     <span className="velocity p-0"> km/h</span> </p>
                             </div>
                         </div>
