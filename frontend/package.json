@@ -10,7 +10,8 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.8",
-    "reactstrap": "^9.1.4"
+    "reactstrap": "^9.1.4",
+    "scss-tokenizer": ">=0.4.3"
   },
   "homepage": "https://Digao46.github.io/DgWeather",
   "scripts": {

@@ -44,71 +44,71 @@ const Temperature = (props) => {
         return (
             <section className="col-10 col-md-6 col-lg-4 mb-5 mt-5">
 
-            <div className="temp">
+                <div className="temp">
 
-                <div className="card mb-3">
-                    <p className="align-self-start m-0"></p>
-                    <p className="align-self-end"></p>
+                    <div className="card mb-3">
+                        <p className="align-self-start m-0"></p>
+                        <p className="align-self-end"></p>
+                    </div>
+
+                    <div className="card d-flex justify-content-center align-items-center mb-3">
+
+                        <div className="currentTemp d-flex justify-content-center align-items-center col-12">
+                            <p>°C</p>
+                        </div>
+
+                        <hr className="horizontalLineDivision" />
+
+                        <div>
+                            <div className="labels col-12 d-flex justify-content-between mt-3">
+                                <p className="me-4">
+                                    min
+                                </p>
+                                <p className="ms-4">
+                                    max
+                                </p>
+                            </div>
+
+                            <div className="otherTemps d-flex justify-content-center col-12">
+                                <p className="me-3">°C</p>
+                                <div className="divisionLine"></div>
+                                <p className="ms-3">°C</p>
+                            </div>
+                        </div>
+
+                        <hr className="horizontalLineDivision" />
+
+                        <div className="feelsLikeTemp d-flex flex-column justify-content-center align-items-center col-12">
+                            <p className="col-12 text-center">Sensação Térmica: </p>
+
+                            <p className=" feelsLike col-12 text-center mb-3">°C</p>
+                        </div>
+
+                    </div>
+
+                    <div className="card d-flex justify-content-center align-items-center">
+                        <div>
+                            <div className="labels col-12 d-flex justify-content-around mt-3">
+                                <p className="text-center">
+                                    Direção
+                                </p>
+                                <p className="text-end">
+                                    Velocidade
+                                </p>
+                            </div>
+
+                            <div className="windData d-flex justify-content-center col-12">
+                                <p className="col-4 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" /></p>
+                                <p className="col-4 ms-4">
+                                    <span className="velocity p-0"> km/h</span> </p>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
 
-                <div className="card d-flex justify-content-center align-items-center mb-3">
-
-                    <div className="currentTemp d-flex justify-content-center align-items-center col-12">
-                        <p>°C</p>
-                    </div>
-
-                    <hr className="horizontalLineDivision" />
-
-                    <div>
-                        <div className="labels col-12 d-flex justify-content-between mt-3">
-                            <p className="me-4">
-                                min
-                            </p>
-                            <p className="ms-4">
-                                max
-                            </p>
-                        </div>
-
-                        <div className="otherTemps d-flex justify-content-center col-12">
-                            <p className="me-3">°C</p>
-                            <div className="divisionLine"></div>
-                            <p className="ms-3">°C</p>
-                        </div>
-                    </div>
-
-                    <hr className="horizontalLineDivision" />
-
-                    <div className="feelsLikeTemp d-flex flex-column justify-content-center align-items-center col-12">
-                        <p className="col-12 text-center">Sensação Térmica: </p>
-
-                        <p className=" feelsLike col-12 text-center mb-3">°C</p>
-                    </div>
-
-                </div>
-
-                <div className="card d-flex justify-content-center align-items-center">
-                    <div>
-                        <div className="labels col-12 d-flex justify-content-around mt-3">
-                            <p className="text-center">
-                                Direção
-                            </p>
-                            <p className="text-end">
-                                Velocidade
-                            </p>
-                        </div>
-
-                        <div className="windData d-flex justify-content-center col-12">
-                            <p className="col-4 me-4 text-end"><i className="fa-solid fa-location-arrow pe-1" /></p>
-                            <p className="col-4 ms-4">
-                                <span className="velocity p-0"> km/h</span> </p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </section>
+            </section>
         )
     }
     else {
