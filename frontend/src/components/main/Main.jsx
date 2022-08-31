@@ -1,8 +1,8 @@
 import React from "react";
-import "./Main.css"
+import "./Main.scss"
 
-import Temperature from "./templates/Temperature"
-import Map from "./templates/Location"
+import Temperature from "../templates/temperature/Temperature"
+import Map from "../templates/map/Map"
 
 const Main = (props) => {
     return (

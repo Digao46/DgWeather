@@ -12,8 +12,8 @@
     margin: 10px 0;
 
     border-radius: 50%;
-    border: 6px solid rgb(243, 243, 243);
-    border-top-color: #0080cd;
+    border: 6px solid var(--white-400);
+    border-top-color: var(--blue-500);
 
     animation: rotating 1s linear infinite;
   }
@@ -24,7 +24,7 @@
 }
 
 .card {
-  background-color: rgba(128, 128, 128, 0.137) !important;
+  background-color: var(--grey-200) !important;
 
   p {
     font-size: 1.2rem;
@@ -33,7 +33,7 @@
 
   hr {
     margin: 0 !important;
-    color: black;
+    color: var(--var(--black-800)-800);
     height: 4px;
     width: 80%;
   }
@@ -64,7 +64,7 @@
 
   .otherTemps {
     .divisionLine {
-      background-color: black;
+      background-color: var(--black-800);
       height: 40px;
       width: 2px;
     }
