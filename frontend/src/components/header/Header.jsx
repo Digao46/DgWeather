@@ -39,7 +39,7 @@ const Header = (props) => {
             <div className="logoArea container col-12 d-flex justify-content-center justify-content-md-start">
                 <div className="d-flex justify-content-center align-items-center">
                     <img className="logo me-3" src={Logo} alt="Logo" />
-                    <a href="/" className="m-0"> DgWeather </a>
+                    <p className="m-0"> DgWeather </p>
                 </div>
             </div>
 

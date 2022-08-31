@@ -8,18 +8,14 @@ header {
   z-index: 100;
 
   img {
-    height: 60px;
+    height: 67px;
   }
 
-  a {
+  p {
     text-decoration: none;
     color: var(--white-800);
     font-size: 1.8rem;
     font-weight: 600;
-
-    &:hover {
-      color: var(--white-800);
-    }
   }
 
   input {
